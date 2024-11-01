@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7digh7er4fpq"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_4q55i"]
+[ext_resource type="Texture2D" uid="uid://c7ijti4pkmhqt" path="res://Assets/monyigo.png" id="1_472rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4sii"]
+size = Vector2(18, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6s5x"]
+atlas = ExtResource("1_472rk")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whdqj"]
+atlas = ExtResource("1_472rk")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwn1h"]
+atlas = ExtResource("1_472rk")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmgel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6s5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whdqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwn1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whdqj")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[node name="Player" type="StaticBody2D"]
+script = ExtResource("1_4q55i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_k4sii")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qmgel")
+animation = &"running"
+autoplay = "running"
