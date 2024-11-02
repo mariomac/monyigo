@@ -8,6 +8,8 @@ var y_speed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	x_speed = speed * cos(angle)
+	y_speed = speed * sin(angle)
 	pass
 
 
