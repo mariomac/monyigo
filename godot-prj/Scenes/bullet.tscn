@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://ded13erqluo76"]
+
+[ext_resource type="Texture2D" uid="uid://c7ijti4pkmhqt" path="res://Assets/monyigo.png" id="1_7w7iy"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_hd641"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm6pf"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47hnf"]
+atlas = ExtResource("1_7w7iy")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w68vt"]
+atlas = ExtResource("1_7w7iy")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0dv"]
+atlas = ExtResource("1_7w7iy")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2llx"]
+atlas = ExtResource("1_7w7iy")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54jod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47hnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w68vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2llx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Bullet" type="StaticBody2D"]
+script = ExtResource("1_hd641")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fm6pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_54jod")
+autoplay = "default"
+frame_progress = 0.666748
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
