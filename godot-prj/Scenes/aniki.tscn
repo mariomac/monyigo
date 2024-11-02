@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b67i8uy3xx4s"]
+
+[ext_resource type="Texture2D" uid="uid://c7ijti4pkmhqt" path="res://Assets/monyigo.png" id="1_sw86s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8boq7"]
+size = Vector2(21, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d7l2"]
+atlas = ExtResource("1_sw86s")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meuot"]
+atlas = ExtResource("1_sw86s")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7303u"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_3d7l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meuot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Aniki" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 0.5)
+shape = SubResource("RectangleShape2D_8boq7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7303u")
+autoplay = "default"
+frame_progress = 0.471141

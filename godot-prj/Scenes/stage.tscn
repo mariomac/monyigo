@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckco01pd27fab"]
+[gd_scene load_steps=3 format=3 uid="uid://ckco01pd27fab"]
 
 [ext_resource type="PackedScene" uid="uid://b7digh7er4fpq" path="res://Scenes/player.tscn" id="1_xcwdb"]
+[ext_resource type="PackedScene" uid="uid://b67i8uy3xx4s" path="res://Scenes/aniki.tscn" id="2_k8g6d"]
 
 [node name="Stage" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_xcwdb")]
 position = Vector2(152, 83)
+
+[node name="Aniki" parent="." instance=ExtResource("2_k8g6d")]
+position = Vector2(278, 140)
+
+[node name="Aniki2" parent="." instance=ExtResource("2_k8g6d")]
+position = Vector2(165, 220)
+
+[node name="Aniki3" parent="." instance=ExtResource("2_k8g6d")]
+position = Vector2(330, 63)
